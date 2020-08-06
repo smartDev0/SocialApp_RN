@@ -318,12 +318,12 @@ const SmsAuthenticationScreen = (props) => {
         <Text style={styles.title}>{IMLocalized('Sign In')}</Text>
         {isPhoneVisible ? phoneInputRender() : codeInputRender()}
         <Text style={styles.orTextStyle}> {IMLocalized('OR')}</Text>
-        <Button
+        {/* <Button
           containerStyle={styles.facebookContainer}
           style={styles.facebookText}
           onPress={() => onFBButtonPress()}>
           {IMLocalized('Login With Facebook')}
-        </Button>
+        </Button> */}
         <Button
           containerStyle={styles.signWithEmailContainer}
           onPress={() =>

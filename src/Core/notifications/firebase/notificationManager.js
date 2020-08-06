@@ -4,8 +4,7 @@ const notificationsRef = firebase.firestore().collection('notifications');
 
 const fcmURL = 'https://fcm.googleapis.com/fcm/send';
 const firebaseServerKey =
-  'AAAAeliTfEs:APA91bGve5fyExjSiUCB0oI09Br1yGUSb0tPHelAk7L0FUytHWGOMlBPexJubTwSjjJTaIlK7oto3jDevoj9c5Q4Qalk6QEtQ9Y3tYfTxHD7OrmPZuVJjVGGciPBJXThG9QHCZQqx9Id';
-
+  'AAAAuG7IbtU:APA91bH4gmVjUj-cygV-mV-a2xc0CVJiKiP7j4BQGn6kUT-PJ4vKaiX3p7cyGnEtl11imDAXhhSeaPQkL7euRTpBXued-z9lC5wyx2TdtUgj96HgT6YEZAj1WjE42Q-JcBqcY19B8wIg';
 const sendPushNotification = async (
   toUser,
   title,

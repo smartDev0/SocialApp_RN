@@ -21,7 +21,7 @@ const dynamicStyles = (appStyles, colorScheme) => {
       width: '100%',
       height: '100%',
       resizeMode: 'contain',
-      tintColor: appStyles.colorSet[colorScheme].mainThemeForegroundColor,
+      // tintColor: appStyles.colorSet[colorScheme].mainThemeForegroundColor,
     },
     title: {
       fontSize: 30,
