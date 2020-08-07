@@ -188,11 +188,11 @@ const SocialNetworkConfig = {
             type: 'text',
             editable: false,
             key: 'push_notifications_enabled',
-            value: '142 Steiner Street, San Francisco, CA, 94115',
+            value: 'Squeaks Technology Services PVT LDT',
           },
           {
             displayName: IMLocalized('E-mail us'),
-            value: 'florian@instamobile.io',
+            value: 'info@squeaks.in',
             type: 'text',
             editable: false,
             key: 'email',
@@ -204,7 +204,7 @@ const SocialNetworkConfig = {
         title: '',
         fields: [
           {
-            displayName: IMLocalized('Call Us'),
+            displayName: IMLocalized('+1000000000'),
             type: 'button',
             key: 'savebutton',
           },

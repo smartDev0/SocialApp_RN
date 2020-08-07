@@ -43,10 +43,29 @@ const lightColorSet = {
   mainButtonColor: '#e8f1fd',
   subButtonColor: '#eaecf0',
 };
-
+const blueColorSet = {
+  mainThemeBackgroundColor: '#3669b5',
+  mainThemeForegroundColor: '#3875e8',
+  mainTextColor: '#ffffff',
+  mainSubtextColor: '#f5f5f5',
+  hairlineColor: '#222222',
+  grey0: TNColor('#eaeaea'),
+  grey3: TNColor('#e6e6f2'),
+  grey6: TNColor('#d6d6d6'),
+  grey9: TNColor('#939393'),
+  tint: '#3068CC',
+  facebook: '#4267b2',
+  grey: 'grey',
+  whiteSmoke: '#222222',
+  headerTintColor: '#ffffff',
+  bottomTintColor: 'lightgrey',
+  mainButtonColor: '#062246',
+  subButtonColor: '#20242d',
+};
 const colorSet = {
   light: lightColorSet,
   dark: darkColorSet,
+  blue: blueColorSet,
   'no-preference': lightColorSet,
 };
 
@@ -60,6 +79,13 @@ const navThemeConstants = {
   },
   dark: {
     backgroundColor: '#000',
+    fontColor: '#fff',
+    activeTintColor: '#3875e8',
+    inactiveTintColor: '#888',
+    hairlineColor: '#222222',
+  },
+  blue: {
+    backgroundColor: '#3669b5',
     fontColor: '#fff',
     activeTintColor: '#3875e8',
     inactiveTintColor: '#888',

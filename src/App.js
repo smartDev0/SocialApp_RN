@@ -39,12 +39,13 @@ const App = (props) => {
       setColorScheme(colorScheme);
     });
   }, []);
-
+  const blueMode = 'blue';
+  console.log('here is color:', colorScheme);
   return (
     <Provider store={store}>
       <AppearanceProvider>
         <MenuProvider>
-          <MainNavigator screenProps={{ theme: colorScheme }} />
+          <MainNavigator screenProps={{ theme: blueMode }} />
         </MenuProvider>
       </AppearanceProvider>
     </Provider>

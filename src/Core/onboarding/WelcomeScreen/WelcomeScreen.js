@@ -57,19 +57,19 @@ const WelcomeScreen = (props) => {
       <Text style={styles.title}>
         {appConfig.onboardingConfig.welcomeTitle}
       </Text>
-      <Text style={styles.caption}>
+      {/* <Text style={styles.caption}>
         {appConfig.onboardingConfig.welcomeCaption}
-      </Text>
+      </Text> */}
       <Button
         containerStyle={styles.loginContainer}
         style={styles.loginText}
         onPress={() => {
           appConfig.isSMSAuthEnabled
             ? props.navigation.navigate('Sms', {
-                isSigningUp: false,
-                appStyles,
-                appConfig,
-              })
+              isSigningUp: false,
+              appStyles,
+              appConfig,
+            })
             : props.navigation.navigate('Login', { appStyles, appConfig });
         }}>
         {IMLocalized('Log In')}
@@ -80,10 +80,10 @@ const WelcomeScreen = (props) => {
         onPress={() => {
           appConfig.isSMSAuthEnabled
             ? props.navigation.navigate('Sms', {
-                isSigningUp: true,
-                appStyles,
-                appConfig,
-              })
+              isSigningUp: true,
+              appStyles,
+              appConfig,
+            })
             : props.navigation.navigate('Signup', { appStyles, appConfig });
         }}>
         {IMLocalized('Sign Up')}
