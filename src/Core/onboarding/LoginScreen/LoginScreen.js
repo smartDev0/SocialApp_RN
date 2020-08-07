@@ -37,13 +37,25 @@ const LoginScreen = (props) => {
     authManager
       .loginWithEmailAndPassword(email, password, appConfig)
       .then((response) => {
+        console.log('here is response:', response)
         if (response.user) {
           const user = response.user;
           props.setUserData({
             user: response.user,
           });
           props.navigation.navigate('MainStack', { user: user });
-        } else {
+        } else if (response.error == "Email is not verified") {
+          setLoading(false);
+          Alert.alert(
+            '',
+            "Email is not verified",
+            [{ text: IMLocalized('OK') }],
+            {
+              cancelable: false,
+            },
+          );
+        }
+        else {
           setLoading(false);
           Alert.alert(
             '',

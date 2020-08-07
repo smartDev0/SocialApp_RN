@@ -3,7 +3,9 @@ import auth from '@react-native-firebase/auth';
 import { ErrorCode } from '../onboarding/utils/ErrorCode';
 import { firebase } from './config';
 import VoipPushNotification from 'react-native-voip-push-notification';
-
+import {
+  Alert,
+} from 'react-native';
 const usersRef = firebase.firestore().collection('users');
 
 export const retrievePersistedAuthUser = () => {
@@ -93,6 +95,11 @@ export const register = (userDetails, appIdentifier) => {
       .auth()
       .createUserWithEmailAndPassword(email, password)
       .then((response) => {
+        response.user.sendEmailVerification().then(() => {
+          console.log('here is email verification sent')
+        }).catch((e) => {
+          console.log('unable to send verification email');
+        });
         const timestamp = firebase.firestore.FieldValue.serverTimestamp();
         const uid = response.user.uid;
 
@@ -138,32 +145,37 @@ export const loginWithEmailAndPassword = async (email, password) => {
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then((response) => {
-        const uid = response.user.uid;
+        if (response.user.emailVerified) {
+          const uid = response.user.uid;
+          const userData = {
+            email,
+            password,
+            id: uid,
+          };
+          usersRef
+            .doc(uid)
+            .get()
+            .then(function (firestoreDocument) {
+              if (!firestoreDocument.exists) {
+                resolve({ errorCode: ErrorCode.noUser });
+                return;
+              }
+              const user = firestoreDocument.data();
+              const newUserData = {
+                ...userData,
+                ...user,
+              };
+              resolve({ user: newUserData });
+            })
+            .catch(function (_error) {
+              console.log('_error:', _error);
+              resolve({ error: ErrorCode.serverError });
+            });
+        } else {
+          var errorCode = 'Email is not verified';
+          resolve({ error: errorCode });
+        }
 
-        const userData = {
-          email,
-          password,
-          id: uid,
-        };
-        usersRef
-          .doc(uid)
-          .get()
-          .then(function (firestoreDocument) {
-            if (!firestoreDocument.exists) {
-              resolve({ errorCode: ErrorCode.noUser });
-              return;
-            }
-            const user = firestoreDocument.data();
-            const newUserData = {
-              ...userData,
-              ...user,
-            };
-            resolve({ user: newUserData });
-          })
-          .catch(function (_error) {
-            console.log('_error:', _error);
-            resolve({ error: ErrorCode.serverError });
-          });
       })
       .catch((error) => {
         console.log('error:', error);

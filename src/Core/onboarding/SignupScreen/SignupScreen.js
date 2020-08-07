@@ -58,7 +58,7 @@ const SignupScreen = (props) => {
           props.setUserData({
             user: response.user,
           });
-          props.navigation.navigate('MainStack', { user: user });
+          props.navigation.navigate('Login', { appStyles, appConfig });
         } else {
           Alert.alert(
             '',
