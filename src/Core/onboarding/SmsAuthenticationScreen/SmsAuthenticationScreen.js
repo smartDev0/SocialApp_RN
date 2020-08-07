@@ -6,6 +6,8 @@ import {
   Alert,
   Image,
   TouchableOpacity,
+  StyleSheet,
+  CheckBox
 } from 'react-native';
 import 'react-native-get-random-values';
 import Button from 'react-native-button';
@@ -52,7 +54,7 @@ const SmsAuthenticationScreen = (props) => {
   const firebaseConfig = firebase.app().options;
 
   const { isSigningUp } = props.navigation.state.params;
-
+  const [isSelected, setSelection] = useState(false);
   useEffect(() => {
     if (phoneRef && phoneRef.current) {
       setCountriesPickerData(phoneRef.current.getPickerData());
@@ -240,6 +242,7 @@ const SmsAuthenticationScreen = (props) => {
             onCancel={onPressCancelContryModalPicker}
           />
         )}
+
         <Button
           containerStyle={styles.sendContainer}
           style={styles.sendText}
@@ -298,7 +301,9 @@ const SmsAuthenticationScreen = (props) => {
           onChangeText={(text) => setLastName(text)}
           value={lastName}
           underlineColorAndroid="transparent"
+
         />
+
         {isPhoneVisible ? phoneInputRender() : codeInputRender()}
         <Text style={styles.orTextStyle}> {IMLocalized('OR')}</Text>
         <Button
@@ -359,7 +364,6 @@ const SmsAuthenticationScreen = (props) => {
     </View>
   );
 };
-
 export default connect(null, {
   setUserData,
 })(SmsAuthenticationScreen);

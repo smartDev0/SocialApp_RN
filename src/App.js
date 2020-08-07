@@ -40,7 +40,6 @@ const App = (props) => {
     });
   }, []);
   const blueMode = 'blue';
-  console.log('here is color:', colorScheme);
   return (
     <Provider store={store}>
       <AppearanceProvider>

@@ -6,6 +6,8 @@ import {
   Alert,
   Image,
   TouchableOpacity,
+  StyleSheet,
+  CheckBox
 } from 'react-native';
 import Button from 'react-native-button';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
@@ -38,7 +40,7 @@ const SignupScreen = (props) => {
     props.navigation.getParam('appStyles');
   const colorScheme = useColorScheme();
   const styles = dynamicStyles(appStyles, colorScheme);
-
+  const [isSelected, setSelection] = useState(false);
   const onRegister = () => {
     setLoading(true);
 
@@ -111,6 +113,27 @@ const SignupScreen = (props) => {
           underlineColorAndroid="transparent"
           autoCapitalize="none"
         />
+        <View style={styles.container}>
+          <View style={style.checkboxContainer}>
+            <CheckBox
+              value={isSelected}
+              onValueChange={setSelection}
+              style={style.checkbox}
+              tintColors={{ true: '#3669b5', false: 'black' }}
+            />
+            <View >
+              <View>
+                <Text>
+                  I accept Privacy Policy and
+                </Text>
+              </View>
+              <View>
+                <Text>
+                  Terms and Conditions</Text>
+              </View>
+            </View>
+          </View>
+        </View>
         <Button
           containerStyle={styles.signupContainer}
           style={styles.signupText}
@@ -160,7 +183,25 @@ const SignupScreen = (props) => {
     </View>
   );
 };
-
+const style = StyleSheet.create({
+  container: {
+    flex: 1,
+    // alignItems: "center",
+    justifyContent: "center",
+  },
+  checkboxContainer: {
+    display: 'flex',
+    flexDirection: "row",
+    marginTop: 20,
+    margin: 'auto'
+  },
+  checkbox: {
+    alignSelf: "center",
+  },
+  label: {
+    margin: 8,
+  },
+});
 export default connect(null, {
   setUserData,
 })(SignupScreen);

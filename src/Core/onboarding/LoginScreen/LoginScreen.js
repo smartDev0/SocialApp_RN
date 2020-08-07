@@ -37,7 +37,6 @@ const LoginScreen = (props) => {
     authManager
       .loginWithEmailAndPassword(email, password, appConfig)
       .then((response) => {
-        console.log('here is response:', response)
         if (response.user) {
           const user = response.user;
           props.setUserData({
