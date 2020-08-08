@@ -151,7 +151,13 @@ const SignupScreen = (props) => {
         keyboardShouldPersistTaps="always">
         <TouchableOpacity onPress={() => props.navigation.goBack()}>
           <Image
-            style={appStyles.styleSet.backArrowStyle}
+            style={[appStyles.styleSet.backArrowStyle], {
+              tintColor: '#3875e8',
+              width: 25,
+              height: 25,
+              marginTop: Platform.OS === 'ios' ? 50 : 20,
+              marginLeft: 10,
+            }}
             source={appStyles.iconSet.backArrow}
           />
         </TouchableOpacity>

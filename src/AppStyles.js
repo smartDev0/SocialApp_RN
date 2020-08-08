@@ -227,6 +227,7 @@ const styleSet = {
   backArrowStyle: {
     resizeMode: 'contain',
     tintColor: 'white',
+    // arrowColor: '#3875e8',
     width: 25,
     height: 25,
     marginTop: Platform.OS === 'ios' ? 50 : 20,
