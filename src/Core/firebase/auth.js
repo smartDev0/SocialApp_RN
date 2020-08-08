@@ -3,15 +3,12 @@ import auth from '@react-native-firebase/auth';
 import { ErrorCode } from '../onboarding/utils/ErrorCode';
 import { firebase } from './config';
 import VoipPushNotification from 'react-native-voip-push-notification';
-import {
-  Alert,
-} from 'react-native';
 const usersRef = firebase.firestore().collection('users');
 
 export const retrievePersistedAuthUser = () => {
   return new Promise((resolve) => {
     return firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
+      if (user && user.emailVerified) {
         usersRef
           .doc(user.uid)
           .get()
