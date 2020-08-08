@@ -56,8 +56,8 @@ function DetailPost(props) {
         {commentsLoading ? (
           <ActivityIndicator style={{ marginVertical: 7 }} size="small" />
         ) : (
-          commentItems.map((comment) => <CommentItem item={comment} />)
-        )}
+            commentItems.map((comment, index) => <CommentItem item={comment} key={index} />)
+          )}
       </ScrollView>
       <CommentInput onCommentSend={onCommentSend} />
       <TNMediaViewerModal

@@ -27,7 +27,7 @@ function CommentInput(props) {
         <TextInput
           underlineColorAndroid="transparent"
           placeholder={'Add Comment to this Post'}
-          placeholderTextColor={styles.placeholderTextColor}
+          // placeholderTextColor={styles.placeholderTextColor}
           value={value}
           onChangeText={onChangeText}
           style={styles.commentTextInput}
