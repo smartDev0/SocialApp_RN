@@ -35,10 +35,10 @@ class CreatePostScreen extends Component {
       headerRight: params.isPosting ? (
         <ActivityIndicator style={{ margin: 10 }} size="small" />
       ) : (
-        <TextButton style={{ marginRight: 12 }} onPress={params.onPost}>
-          Post
-        </TextButton>
-      ),
+          <TextButton style={{ marginRight: 12, color: 'white' }} onPress={params.onPost}>
+            Post
+          </TextButton>
+        ),
       headerStyle: {
         backgroundColor: currentTheme.backgroundColor,
         borderBottomColor: currentTheme.hairlineColor,

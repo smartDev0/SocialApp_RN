@@ -18,7 +18,7 @@ class IMEditProfileScreen extends Component {
     return {
       headerTitle: screenTitle,
       headerRight: (
-        <TextButton style={{ marginRight: 12 }} onPress={params.onFormSubmit}>
+        <TextButton style={{ marginRight: 12, color: 'white' }} onPress={params.onFormSubmit}>
           Done
         </TextButton>
       ),

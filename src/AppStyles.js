@@ -86,10 +86,10 @@ const navThemeConstants = {
   },
   blue: {
     backgroundColor: '#3669b5',
-    fontColor: '#fff',
-    activeTintColor: '#3875e8',
-    inactiveTintColor: '#888',
-    hairlineColor: '#222222',
+    fontColor: 'white',
+    activeTintColor: 'white',
+    inactiveTintColor: 'white',
+    hairlineColor: 'white',
   },
   main: '#3875e8',
   'no-preference': {
