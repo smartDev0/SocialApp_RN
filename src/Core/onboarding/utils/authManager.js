@@ -327,7 +327,7 @@ const getCurrentLocation = (geolocation) => {
 
     geolocation.getCurrentPosition(
       (location) => {
-        console.log(location);
+        // console.log(location);
         resolve(location);
       },
       (error) => {

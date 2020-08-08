@@ -343,7 +343,7 @@ const FeedScreen = (props) => {
     }
   };
 
-  const onFeedScroll = () => {};
+  const onFeedScroll = () => { };
 
   const onEmptyStatePress = () => {
     props.navigation.navigate('Friends');
@@ -458,8 +458,8 @@ FeedScreen.navigationOptions = ({ screenProps, navigation }) => {
                   backgroundColor: currentTheme.backgroundColor,
                 },
               }}>
-              {androidNavIconOptions.map((option) => (
-                <MenuOption onSelect={option.onSelect}>
+              {androidNavIconOptions.map((option, index) => (
+                <MenuOption onSelect={option.onSelect} key={index}>
                   <Image
                     style={[
                       {
