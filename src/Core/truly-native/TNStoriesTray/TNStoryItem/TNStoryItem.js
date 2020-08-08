@@ -35,7 +35,7 @@ function StoryItem(props) {
       key={index}
       ref={refs}
       activeOpacity={activeOpacity}
-      // onPress={() => onPress(item, index, refs)}
+      onPress={() => onPress(item, index, refs)}
       style={[styles.container, containerStyle]}>
       <View style={[styles.imageContainer, imageContainerStyle]}>
         <Image
