@@ -13,7 +13,7 @@ const { LaunchManager } = NativeModules;
 
 const options = {
   ios: {
-    appName: 'Instachatty',
+    appName: 'Squeaks',
   },
   android: {
     alertTitle: 'Permissions required',
