@@ -243,7 +243,6 @@ const SmsAuthenticationScreen = (props) => {
             onCancel={onPressCancelContryModalPicker}
           />
         )}
-
         <Button
           containerStyle={styles.sendContainer}
           style={styles.sendText}
@@ -253,7 +252,65 @@ const SmsAuthenticationScreen = (props) => {
       </>
     );
   };
+  const phoneInputRenderSign = () => {
+    return (
+      <>
+        <PhoneInput
+          style={styles.InputContainer}
+          flagStyle={styles.flagStyle}
+          textStyle={styles.phoneInputTextStyle}
+          ref={phoneRef}
+          onPressFlag={onPressFlag}
+          offset={10}
+          allowZeroAfterCountryCode
+          textProps={{
+            placeholder: IMLocalized('Phone number'),
+            placeholderTextColor: '#aaaaaa',
+          }}
+        />
+        {countriesPickerData && (
+          <CountriesModalPicker
+            data={countriesPickerData}
+            appStyles={appStyles}
+            onChange={(country) => {
+              selectCountry(country);
+            }}
+            cancelText={IMLocalized('Cancel')}
+            visible={countryModalVisible}
+            onCancel={onPressCancelContryModalPicker}
+          />
+        )}
 
+        <View style={styles.container}>
+          <View style={style.checkboxContainer}>
+            <CheckBox
+              value={isSelected}
+              onValueChange={setSelection}
+              style={style.checkbox}
+              tintColors={{ true: '#3669b5', false: 'black' }}
+            />
+            <View >
+              <View>
+                <Text>
+                  I accept Privacy Policy and
+                </Text>
+              </View>
+              <View>
+                <Text>
+                  Terms and Conditions</Text>
+              </View>
+            </View>
+          </View>
+        </View>
+        <Button
+          containerStyle={styles.sendContainer}
+          style={styles.sendText}
+          onPress={() => onPressSend()}>
+          {IMLocalized('Send code')}
+        </Button>
+      </>
+    );
+  };
   const codeInputRender = () => {
     return (
       <>
@@ -304,8 +361,7 @@ const SmsAuthenticationScreen = (props) => {
           underlineColorAndroid="transparent"
 
         />
-
-        {isPhoneVisible ? phoneInputRender() : codeInputRender()}
+        {isPhoneVisible ? phoneInputRenderSign() : codeInputRender()}
         <Text style={styles.orTextStyle}> {IMLocalized('OR')}</Text>
         <Button
           containerStyle={styles.signWithEmailContainer}
@@ -371,6 +427,25 @@ const SmsAuthenticationScreen = (props) => {
     </View>
   );
 };
+const style = StyleSheet.create({
+  container: {
+    flex: 1,
+    // alignItems: "center",
+    justifyContent: "center",
+  },
+  checkboxContainer: {
+    display: 'flex',
+    flexDirection: "row",
+    marginTop: 20,
+    margin: 'auto'
+  },
+  checkbox: {
+    alignSelf: "center",
+  },
+  label: {
+    margin: 8,
+  },
+});
 export default connect(null, {
   setUserData,
 })(SmsAuthenticationScreen);

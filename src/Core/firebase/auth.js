@@ -104,9 +104,7 @@ export const register = (userDetails, appIdentifier) => {
       .createUserWithEmailAndPassword(email, password)
       .then((response) => {
         response.user.sendEmailVerification().then(() => {
-          console.log('here is email verification sent')
         }).catch((e) => {
-          console.log('unable to send verification email');
         });
         const timestamp = firebase.firestore.FieldValue.serverTimestamp();
         const uid = response.user.uid;
