@@ -19,6 +19,17 @@ export const retrievePersistedAuthUser = () => {
           .catch((error) => {
             resolve(null);
           });
+      } else if (user && user.phoneNumber != null) {
+        usersRef
+          .doc(user.uid)
+          .get()
+          .then((document) => {
+            const userData = document.data();
+            resolve({ ...userData, id: user.uid, userID: user.uid });
+          })
+          .catch((error) => {
+            resolve(null);
+          });
       } else {
         resolve(null);
       }
