@@ -56,7 +56,6 @@ const SignupScreen = (props) => {
       .createAccountWithEmailAndPassword(userDetails, appConfig)
       .then((response) => {
         const user = response.user;
-        console.log(response)
         if (user) {
           props.setUserData({
             user: response.user,

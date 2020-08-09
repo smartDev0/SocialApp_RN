@@ -4,6 +4,7 @@ import {
   LoginScreen,
   SignupScreen,
   SmsAuthenticationScreen,
+  PrivacySreen
 } from '../Core/onboarding';
 import AppStyles from '../AppStyles';
 import SocialNetworkConfig from '../SocialNetworkConfig';
@@ -13,6 +14,10 @@ const AuthStackNavigator = createStackNavigator(
   {
     Welcome: {
       screen: WelcomeScreen,
+      navigationOptions: { header: null },
+    },
+    Privacy: {
+      screen: PrivacySreen,
       navigationOptions: { header: null },
     },
     Login: {

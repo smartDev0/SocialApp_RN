@@ -373,7 +373,42 @@ const SmsAuthenticationScreen = (props) => {
       </>
     );
   };
-
+  const renderAsSignUpBack = () => {
+    return (
+      <>
+        <TouchableOpacity onPress={() => props.navigation.navigate('Welcome', { appStyles, appConfig })}>
+          <Image
+            style={[appStyles.styleSet.backArrowStyle], [{
+              tintColor: '#3875e8',
+              width: 25,
+              height: 25,
+              marginTop: Platform.OS === 'ios' ? 50 : 20,
+              marginLeft: 10,
+            }]}
+            source={appStyles.iconSet.backArrow}
+          />
+        </TouchableOpacity>
+      </>
+    );
+  };
+  const renderAsLoginBack = () => {
+    return (
+      <>
+        <TouchableOpacity onPress={() => props.navigation.goBack()}>
+          <Image
+            style={[appStyles.styleSet.backArrowStyle], [{
+              tintColor: '#3875e8',
+              width: 25,
+              height: 25,
+              marginTop: Platform.OS === 'ios' ? 50 : 20,
+              marginLeft: 10,
+            }]}
+            source={appStyles.iconSet.backArrow}
+          />
+        </TouchableOpacity>
+      </>
+    );
+  };
   const renderAsLoginState = () => {
     return (
       <>
@@ -402,18 +437,7 @@ const SmsAuthenticationScreen = (props) => {
       <KeyboardAwareScrollView
         style={{ flex: 1, width: '100%' }}
         keyboardShouldPersistTaps="always">
-        <TouchableOpacity onPress={() => props.navigation.goBack()}>
-          <Image
-            style={[appStyles.styleSet.backArrowStyle], [{
-              tintColor: '#3875e8',
-              width: 25,
-              height: 25,
-              marginTop: Platform.OS === 'ios' ? 50 : 20,
-              marginLeft: 10,
-            }]}
-            source={appStyles.iconSet.backArrow}
-          />
-        </TouchableOpacity>
+        {isSigningUp ? renderAsSignUpBack() : renderAsLoginBack()}
         {isSigningUp ? renderAsSignUpState() : renderAsLoginState()}
         {isSigningUp && (
           <TermsOfUseView tosLink={appConfig.tosLink} style={styles.tos} />

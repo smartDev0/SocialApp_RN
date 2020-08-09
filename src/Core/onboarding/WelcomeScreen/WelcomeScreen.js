@@ -78,13 +78,15 @@ const WelcomeScreen = (props) => {
         containerStyle={styles.signupContainer}
         style={styles.signupText}
         onPress={() => {
-          appConfig.isSMSAuthEnabled
-            ? props.navigation.navigate('Sms', {
-              isSigningUp: true,
-              appStyles,
-              appConfig,
-            })
-            : props.navigation.navigate('Signup', { appStyles, appConfig });
+          // appConfig.isSMSAuthEnabled
+          //   ? props.navigation.navigate('Sms', {
+          //     isSigningUp: true,
+          //     appStyles,
+          //     appConfig,
+          //   })
+          //   :
+          //   props.navigation.navigate('Signup', { appStyles, appConfig });
+          props.navigation.navigate('Privacy', { appStyles, appConfig });
         }}>
         {IMLocalized('Sign Up')}
       </Button>
