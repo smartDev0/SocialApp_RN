@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Button from 'react-native-button';
-import { Text, View, Image } from 'react-native';
+import { Text, View, Image, Linking } from 'react-native';
 
 import TNActivityIndicator from '../../truly-native/TNActivityIndicator';
 import { IMLocalized } from '../../localization/IMLocalization';
@@ -34,15 +34,13 @@ const PrivacyScreen = (props) => {
                 <Text style={styles.caption}>
                     {IMLocalized('By continuing and signing up you agree to our')}
                     &nbsp;
-                    <Text style={styles.linkText}>
-
+                    <Text style={styles.linkText} onPress={() => Linking.openURL('https://squeaks.in/terms')}>
                         {IMLocalized('Terms and Conditions')}
                     </Text>
                     <Text style={styles.caption}>
                         &nbsp;{IMLocalized('and')}&nbsp;
                     </Text>
-                    <Text style={styles.linkText}>
-
+                    <Text style={styles.linkText} onPress={() => Linking.openURL('https://squeaks.in/privacy')} >
                         {IMLocalized('Privacy')}
                     </Text>
                 </Text>
