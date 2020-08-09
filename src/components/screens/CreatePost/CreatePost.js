@@ -264,7 +264,7 @@ function CreatePost(props) {
           />
           <View style={styles.titleContainer}>
             <Text style={styles.title}>{user.firstName}</Text>
-            <Text style={styles.subtitle}>{address}</Text>
+            {/* <Text style={styles.subtitle}>{address}</Text> */}
           </View>
         </View>
         <View style={styles.postInputContainer}>
